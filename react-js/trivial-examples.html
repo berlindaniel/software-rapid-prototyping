@@ -9,12 +9,23 @@
   <body>
     <div id="app"></div>
     <script type="text/babel">
-      class ProjectTeams extends React.Component{
+      class ProjectTeam extends React.Component{
         render(){
           return (<h1>This is a team</h1>);
         }
       }
-      ReactDOM.render(<ProjectTeams />, document.querySelector('#app'));
+      class AllProjects extends React.Component{
+        render(){
+          return(
+            <div>
+              <ProjectTeam />
+              <ProjectTeam />
+              <ProjectTeam />
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<AllProjects />, document.querySelector('#app'));
     </script>
   </body>
 </html>
