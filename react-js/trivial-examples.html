@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>CS290 Project Teams</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      class ProjectTeams extends React.Component{
+        render(){
+          return (<h1>This is a team</h1>);
+        }
+      }
+      ReactDOM.render(<ProjectTeams />, document.querySelector('#app'));
+    </script>
+  </body>
+</html>
