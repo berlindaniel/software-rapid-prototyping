@@ -9,23 +9,37 @@
   <body>
     <div id="app"></div>
     <script type="text/babel">
+
       class ProjectTeam extends React.Component{
-        render(){
-          return (<h1>This is a team</h1>);
-        }
-      }
-      class AllProjects extends React.Component{
         render(){
           return(
             <div>
-              <ProjectTeam />
-              <ProjectTeam />
-              <ProjectTeam />
+              <h2>{this.props.name}</h2>
+              <p>Members: {this.props.members || "Elon Musk"}</p>
             </div>
           );
         }
       }
+
+      class AllProjects extends React.Component{
+        render(){
+          return(
+            <div>
+              <h1>Teams mentored by Oscar</h1>
+              <ProjectTeam name="Weekendr" members="Tim, Molly" />
+              <ProjectTeam name="BXR" members="Daniel, Will, Christine" />
+              <ProjectTeam name="Fadr" members="Natalie, Tanvi, Victoria" />
+              <ProjectTeam name="Level" members="Edward, Olivia, Tiffany" />
+              <ProjectTeam name="under a rock" members="David, Matthew, Alison" />
+              {/* what happens if you don't pass in certain props? */}
+              <ProjectTeam name="The Boring Company" />
+            </div>
+          );
+        }
+      }
+
       ReactDOM.render(<AllProjects />, document.querySelector('#app'));
+
     </script>
   </body>
 </html>
