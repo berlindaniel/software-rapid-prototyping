@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Counter</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+
+      class Counter extends React.Component {
+
+        constructor(props) {
+          super(props);
+          this.state = {
+            count: this.props.startAt
+          };
+        }
+
+        render(){
+          return (
+            <div>
+              <h1>{this.state.count}</h1>
+              <button onClick={this.decrement}>-</button>
+              <button onClick={this.increment}>+</button>
+
+            </div>
+          );
+        }
+
+        increment = () => {
+          {
+            // While our instinct might be to pass in an object {count: this.state.count + 1}, it's considered bad design to use this.state inside setState b/c multiple setState functions might run at the same time, causing a race condition. Instead, pass in a function like so:
+          }
+          this.setState(prevState => ({
+            count: prevState.count + 1
+          }));
+        }
+
+        decrement = () => {
+          this.setState(prevState => ({
+            count: prevState.count - 1
+          }));
+        }
+      }
+
+      class App extends React.Component {
+        render(){
+          return(
+            <div>
+              <h1>Let's learn to count!</h1>
+              <Counter startAt={7}/>
+              <Counter startAt={82}/>
+              <Counter startAt={-19}/>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<App />, document.querySelector('#app'));
+
+    </script>
+  </body>
+</html>
